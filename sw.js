@@ -1,10 +1,11 @@
 // Build substitutes a content-hashed version and the complete public app shell.
 // API responses, files, and credentials are never stored by this service worker.
-const CACHE = 'drop-pwa-shell-75c9b5696cf21f65';
-const PRECACHE = ["./","./bucket.svg","./manifest.webmanifest","./icon-180.png","./icon-512.png","./assets/pdf.worker.min-CLrFZWeq.mjs","./assets/index-CR_h5uVX.css","./assets/index-BGeo8nPd.js","./assets/pdf-BFd-NW1U.js"];
+const CACHE = 'drop-pwa-shell-0de8b8b00a1ab3ba';
+const PRECACHE = ["./","./bucket.svg","./manifest.webmanifest","./icon-180.png","./icon-512.png","./assets/pdf.worker.min-CLrFZWeq.mjs","./assets/index-CR_h5uVX.css","./assets/index-hInmssNo.js","./assets/pdf-BFd-NW1U.js"];
 const scope = new URL(self.registration.scope);
 self.addEventListener('install', event => {
-  event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(PRECACHE)));
+  // Bypass the HTTP cache so an update cannot retain the previous index.html.
+  event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(PRECACHE.map(url => new Request(url, { cache: 'reload' })))));
   // Do not replace an open app: it may still be saving a local change.
 });
 self.addEventListener('activate', event => {
