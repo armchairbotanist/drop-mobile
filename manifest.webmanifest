@@ -1,0 +1,5 @@
+{
+  "id": "./", "name": "Drop", "short_name": "Drop", "start_url": "./", "scope": "./",
+  "display": "standalone", "background_color": "#f8f7f4", "theme_color": "#f8f7f4",
+  "icons": [{ "src": "icon-512.png", "sizes": "1024x1024", "type": "image/png", "purpose": "any" }]
+}
