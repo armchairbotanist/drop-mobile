@@ -14,38 +14,39 @@
 </head>
 <body>
   <header><a href="../">← Drop</a></header>
-  <h1>Share a file. It’s in Pantry.</h1>
-  <p class="intro">A free Apple Shortcut for your iPhone. No extra app or subscription.</p>
-  <a class="button" href="Add-to-Drop.shortcut?v=1.1" download="Add to Drop.shortcut">Download Add to Drop</a>
-  <p class="small">Shortcut v1.1 · fixes the unexpected Text prompt · signed for import into Apple Shortcuts</p>
-  <p class="small">Already installed v1.0? Download this replacement and choose Replace if prompted. You may need to enter your token once for the new copy. The first comment in its editor says v1.1.</p>
+  <svg width="56" height="56" viewBox="0 0 36 36" aria-hidden="true" style="margin-top:28px"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4"><path d="M9 14c0-5 4-9 9-9s9 4 9 9M7 14h22l-3 17H10zM12 19h12"/></g></svg>
+  <h1>Add to Drop</h1>
+  <p class="intro">Share a file from your iPhone straight to Pantry.</p>
+  <a class="button" href="Add-to-Drop.shortcut?v=1.4" download="Add to Drop.shortcut">Download Add to Drop</a>
+  <p class="small">Shortcut v1.4 · one file at a time · no extra app or subscription</p>
+  <p class="small">Choose Replace if prompted, then enter your token once for the new copy. After testing, remove the old Single File Test shortcut to avoid duplicate Share Sheet entries. The first comment in the new editor says v1.4.</p>
   <h2>Set up once</h2>
   <ol>
     <li>Open this page in <strong>Safari on your iPhone</strong> and download the shortcut.</li>
     <li>Open the downloaded <strong>Add to Drop.shortcut</strong> file from Safari’s downloads or the Files app. In Shortcuts, choose <strong>Set Up Shortcut</strong> / <strong>Add Shortcut</strong>.</li>
     <li>Paste the same <strong>fine-grained GitHub token</strong> you use for Drop. It must allow only <code>armchairbotanist/drop-library</code>, with <strong>Contents: read and write</strong>.</li>
-    <li>If setup does not ask for the token, open the shortcut’s editor (•••) and paste it into the first <strong>Text</strong> action beneath the introductory comment.</li>
+    <li>If setup does not ask for the token, open the shortcut’s editor (•••) and paste it into the blank <strong>Text</strong> action named <strong>Token</strong>.</li>
   </ol>
   <div class="note"><strong>Keep your configured shortcut private.</strong> Its Text action stores the token; this is not Apple Keychain. It may sync with your Shortcuts through iCloud. The downloaded template contains no token. Share this installation page, not your configured copy.</div>
   <h2>Send a file</h2>
   <ol>
-    <li>In Files, long-press a file → <strong>Share → Add to Drop</strong>. You can also share multiple selected files, photos, PDFs, or recordings.</li>
+    <li>In Files, long-press one file → <strong>Share → Add to Drop</strong>.</li>
     <li>On the first run, allow the shortcut to access the selected files and connect to <strong>api.github.com</strong>.</li>
-    <li>Keep the Share Sheet open until you see <strong>Added to Pantry</strong> with the saved filenames. That confirmation appears only after GitHub confirms the files were saved.</li>
+    <li>You’ll see an <strong>Uploading…</strong> banner. Keep the Share Sheet open until <strong>Added to Pantry</strong> appears with the filename—only after GitHub confirms it was saved. Neither banner needs an OK tap.</li>
   </ol>
   <p>If Add to Drop is not listed, scroll through the Share Sheet’s actions. In the shortcut’s Details, check that <strong>Show in Share Sheet</strong> is on.</p>
   <h2>What to expect</h2>
   <ul>
     <li>Files go straight to <strong>Pantry</strong>. Open Drop and sync to see them on another device.</li>
-    <li>Names use lowercase. A same-name file gets a timestamp suffix; existing files are never overwritten.</li>
-    <li>Uploads run one at a time. Internet access is required; this shortcut does not queue offline uploads.</li>
-    <li>Up to <strong>100 MiB per file</strong>, subject to the iPhone’s available memory. Start with a small PDF or text file.</li>
-    <li>Your original files stay where they are. If a run is interrupted, check Pantry before retrying—some files may already be saved.</li>
+    <li>Names use lowercase, with spaces converted to hyphens and four random digits before the extension: <strong>insurance-4821.pdf</strong>. Existing files are never overwritten.</li>
+    <li>Share one file per run. Internet access is required; there is no offline queue.</li>
+    <li>Start with a small PDF or text file. Large uploads also depend on your iPhone’s available memory.</li>
+    <li>Your original file stays where it is. If a run is interrupted, check Pantry before retrying—it may already be saved.</li>
     <li>Share the actual file. Folders and webpage links are not supported. If Safari or Canvas shares only a link, download the file first or use <strong>Add a link</strong> inside Drop.</li>
   </ul>
   <h2>If it fails</h2>
-  <p>No <strong>Added to Pantry</strong> message means the upload has not been fully confirmed. GitHub errors show any files already saved in that run. A connection interruption may instead show Apple’s own error. Check Pantry, then retry only the missing files.</p>
-  <p>For a revoked or expired token, replace the first Text action in the shortcut. Do not clear Drop’s website data or reconnect its Library to repair this separate shortcut.</p>
+  <p>No <strong>Added to Pantry</strong> message means the upload has not been confirmed. A connection interruption may show Apple’s own error. Check Pantry before retrying. If the same name and four-digit suffix happen to exist, the upload fails safely; another run picks a new number.</p>
+  <p>For a revoked or expired token, replace the <strong>Token</strong> Text action in the shortcut. Do not clear Drop’s website data or reconnect its Library to repair this separate shortcut.</p>
   <footer class="small">This shortcut uses Apple’s built-in actions and talks directly to GitHub. It does not upload your files or token to this public website.</footer>
 </body>
 </html>
