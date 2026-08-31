@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="referrer" content="no-referrer"/>
+  <meta name="color-scheme" content="light dark"/>
+  <title>Add to Drop · iPhone Shortcut</title>
+  <style>
+    :root{font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#202124;background:#f5f5f3}
+    body{max-width:620px;margin:0 auto;padding:40px 22px 64px}h1{font-size:34px;line-height:1.15;letter-spacing:-1px;margin:18px 0}h2{font-size:20px;margin:30px 0 8px}p{margin:10px 0}a{color:inherit}header a{font-size:15px;color:#666;text-decoration:none}.intro{color:#626262}.button{display:inline-block;padding:13px 22px;margin:18px 0;background:#171717;color:white;border-radius:13px;text-decoration:none;font-weight:600}li{padding:5px 0}ol{padding-left:23px}.note{padding:17px 19px;background:#eaeae7;border-radius:14px;margin:22px 0}.small{font-size:14px;color:#666}code{font-size:.9em}footer{margin-top:35px;border-top:1px solid #ddd;padding-top:16px}
+    @media(prefers-color-scheme:dark){:root{background:#171717;color:#eee}.intro,.small,header a{color:#aaa}.button{background:#eee;color:#171717}.note{background:#272727}footer{border-color:#444}}
+  </style>
+</head>
+<body>
+  <header><a href="../">← Drop</a></header>
+  <h1>Share a file. It’s in Pantry.</h1>
+  <p class="intro">A free Apple Shortcut for your iPhone. No extra app or subscription.</p>
+  <a class="button" href="Add-to-Drop.shortcut" download="Add to Drop.shortcut">Download Add to Drop</a>
+  <p class="small">Shortcut v1.0 · iPhone testing preview · signed for import into Apple Shortcuts</p>
+  <h2>Set up once</h2>
+  <ol>
+    <li>Open this page in <strong>Safari on your iPhone</strong> and download the shortcut.</li>
+    <li>Open the downloaded <strong>Add to Drop.shortcut</strong> file from Safari’s downloads or the Files app. In Shortcuts, choose <strong>Set Up Shortcut</strong> / <strong>Add Shortcut</strong>.</li>
+    <li>Paste the same <strong>fine-grained GitHub token</strong> you use for Drop. It must allow only <code>armchairbotanist/drop-library</code>, with <strong>Contents: read and write</strong>.</li>
+    <li>If setup does not ask for the token, open the shortcut’s editor (•••) and paste it into the first <strong>Text</strong> action beneath the introductory comment.</li>
+  </ol>
+  <div class="note"><strong>Keep your configured shortcut private.</strong> Its Text action stores the token; this is not Apple Keychain. It may sync with your Shortcuts through iCloud. The downloaded template contains no token. Share this installation page, not your configured copy.</div>
+  <h2>Send a file</h2>
+  <ol>
+    <li>In Files, long-press a file → <strong>Share → Add to Drop</strong>. You can also share multiple selected files, photos, PDFs, or recordings.</li>
+    <li>On the first run, allow the shortcut to access the selected files and connect to <strong>api.github.com</strong>.</li>
+    <li>Keep the Share Sheet open until you see <strong>Added to Pantry</strong> with the saved filenames. That confirmation appears only after GitHub confirms the files were saved.</li>
+  </ol>
+  <p>If Add to Drop is not listed, scroll through the Share Sheet’s actions. In the shortcut’s Details, check that <strong>Show in Share Sheet</strong> is on.</p>
+  <h2>What to expect</h2>
+  <ul>
+    <li>Files go straight to <strong>Pantry</strong>. Open Drop and sync to see them on another device.</li>
+    <li>Names use lowercase. A same-name file gets a timestamp suffix; existing files are never overwritten.</li>
+    <li>Uploads run one at a time. Internet access is required; this shortcut does not queue offline uploads.</li>
+    <li>Up to <strong>100 MiB per file</strong>, subject to the iPhone’s available memory. Start with a small PDF or text file.</li>
+    <li>Your original files stay where they are. If a run is interrupted, check Pantry before retrying—some files may already be saved.</li>
+    <li>Share the actual file. Folders and webpage links are not supported. If Safari or Canvas shares only a link, download the file first or use <strong>Add a link</strong> inside Drop.</li>
+  </ul>
+  <h2>If it fails</h2>
+  <p>No <strong>Added to Pantry</strong> message means the upload has not been fully confirmed. GitHub errors show any files already saved in that run. A connection interruption may instead show Apple’s own error. Check Pantry, then retry only the missing files.</p>
+  <p>For a revoked or expired token, replace the first Text action in the shortcut. Do not clear Drop’s website data or reconnect its Library to repair this separate shortcut.</p>
+  <footer class="small">This shortcut uses Apple’s built-in actions and talks directly to GitHub. It does not upload your files or token to this public website.</footer>
+</body>
+</html>
