@@ -1,7 +1,7 @@
 // Build substitutes a content-hashed version and the complete public app shell.
 // API responses, files, and credentials are never stored by this service worker.
-const CACHE = 'drop-pwa-shell-1c992aecc749bbec';
-const PRECACHE = ["./","./bucket.svg","./manifest.webmanifest","./icon-180.png","./icon-512.png","./assets/pdf.worker.min-CLrFZWeq.mjs","./assets/index-CR_h5uVX.css","./assets/index-BnpGq8q0.js","./assets/pdf-BFd-NW1U.js"];
+const CACHE = 'drop-pwa-shell-c1215406b069b57d';
+const PRECACHE = ["./","./bucket.svg","./manifest.webmanifest","./icon-180.png","./icon-512.png","./assets/pdf.worker.min-CLrFZWeq.mjs","./assets/index-CR_h5uVX.css","./assets/index-DLsq2mRE.js","./assets/pdf-BFd-NW1U.js"];
 const scope = new URL(self.registration.scope);
 self.addEventListener('install', event => {
   // Bypass the HTTP cache so an update cannot retain the previous index.html.
@@ -15,6 +15,10 @@ self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
   if (event.request.method !== 'GET' || url.origin !== scope.origin || !url.pathname.startsWith(scope.pathname) || event.request.headers.has('Authorization')) return;
   if (event.request.mode === 'navigate') {
+    // Only the actual app entry points use the offline shell. Returning that
+    // HTML for /shortcuts/ also resolves its relative JS under /shortcuts/assets/
+    // and leaves a blank page instead of the installation instructions.
+    if (url.pathname !== scope.pathname && url.pathname !== `${scope.pathname}index.html`) return;
     // Match HTML to this worker's precached JS, even during a deployment.
     event.respondWith(caches.open(CACHE).then(async cache => (await cache.match('./')) || fetch(event.request)));
   } else if (url.pathname.includes('/assets/') || url.pathname.includes('/pdfjs/') || /\.(png|svg|webmanifest)$/.test(url.pathname)) {
